@@ -6,7 +6,7 @@ namespace BookStore.Domain.Repository
     {
         Book[] BetAllByTitle(string titlePart)
         {
-
+            
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Book
     {
-        public Guid Id { get; }
+        public int Id { get; }
 
         public string Title { get; } = string.Empty;
         public string Description { get; } = string.Empty;
@@ -12,7 +12,7 @@
 
         public const int MAX_TITLE_LENGTH = 250;
         public const int MAX_DESCRIPTION_LENGTH = 1000;
-        private Book(Guid id, string title, string description, decimal price)
+        private Book(int id, string title, string description, decimal price)
         {
             Id = id;
             Title = title;
@@ -20,7 +20,7 @@
             Price = price;
         }
 
-        public static (Book? Book, string? Error) Create(Guid id, string title, string description, decimal price)
+        public static (Book? Book, string? Error) Create(int id, string title, string description, decimal price)
         {
             if(string.IsNullOrEmpty(title) && title.Length <= MAX_TITLE_LENGTH)
             {
