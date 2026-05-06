@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11723.231 stable
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.API", "BookStore.API\BookStore.API.csproj", "{4D615297-B767-4490-9CAD-3C7EB53B4088}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Domain", "BookStore.Domain\BookStore.Domain.csproj", "{25FD2079-DBA7-48BF-AB6A-4847A8AAFA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Infrastructure", "BookStore.Infrastructure\BookStore.Infrastructure.csproj", "{0D1CAA97-3B33-4EC6-936D-0C7C8DA2814D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D615297-B767-4490-9CAD-3C7EB53B4088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D615297-B767-4490-9CAD-3C7EB53B4088}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D615297-B767-4490-9CAD-3C7EB53B4088}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D615297-B767-4490-9CAD-3C7EB53B4088}.Release|Any CPU.Build.0 = Release|Any CPU
 		{25FD2079-DBA7-48BF-AB6A-4847A8AAFA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{25FD2079-DBA7-48BF-AB6A-4847A8AAFA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25FD2079-DBA7-48BF-AB6A-4847A8AAFA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25FD2079-DBA7-48BF-AB6A-4847A8AAFA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1CAA97-3B33-4EC6-936D-0C7C8DA2814D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1CAA97-3B33-4EC6-936D-0C7C8DA2814D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1CAA97-3B33-4EC6-936D-0C7C8DA2814D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1CAA97-3B33-4EC6-936D-0C7C8DA2814D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
