@@ -1,0 +1,9 @@
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid #77b300;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}

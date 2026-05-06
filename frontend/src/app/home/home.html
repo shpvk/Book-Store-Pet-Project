@@ -1,0 +1,18 @@
+<section class="intro">
+  <h1>Магазин IT-литературы</h1>
+  <p>Только проверенные временем книги для разработчиков.</p>
+</section>
+
+<div class="container">
+  <div class="grid">
+    <div class="card" *ngFor="let book of books">
+      <img [src]="book.image" [alt]="book.title">
+      <div class="info">
+        <h4>{{ book.title }}</h4>
+        <p class="author">{{ book.author }}</p>
+        <p class="price">{{ book.price }} грн</p>
+        <button class="btn">Купить</button>
+      </div>
+    </div>
+  </div>
+</div>
