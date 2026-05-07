@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-home',
@@ -8,31 +9,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home {
-  books = [
-    {
-      title: 'Грокаем алгоритмы',
-      author: 'Адитья Бхаргава',
-      price: 650,
-      image: 'book/algorithms.jpg'
-    },
-    {
-      title: 'Чистая архитектура',
-      author: 'Роберт Мартин',
-      price: 800,
-      image: 'book/architecture.jpg'
-    },
-    {
-      title: 'Код: тайный язык информатики',
-      author: 'Чарльз Петцольд',
-      price: 950,
-      image: 'book/code.jpg'
-    },
-    {
-      title: 'Язык программирования C++',
-      author: 'Бьерн Страуструп',
-      price: 1100,
-      image: 'book/cpp.jpg'
-    }
-  ];
+export class Home implements OnInit {
+  books: any[] = [];
+  imageBaseUrl = 'https://localhost:5000/images/books/'; 
+
+  constructor(private bookService: BookService) {}
+
+    ngOnInit(): void {
+    this.bookService.getBooks().subscribe({
+      next: (data) => {
+        this.books = data;
+      }
+    });
+  }
 }
