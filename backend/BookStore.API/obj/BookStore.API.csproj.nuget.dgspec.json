@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\BookStore\\backend\\BookStore.API\\BookStore.API.csproj": {}
+    "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\BookStore\\backend\\BookStore.API\\BookStore.API.csproj": {
+    "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\BookStore\\backend\\BookStore.API\\BookStore.API.csproj",
+        "projectUniqueName": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
         "projectName": "BookStore.API",
-        "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.API\\BookStore.API.csproj",
+        "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
         "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\BookStore\\backend\\BookStore.API\\obj\\",
+        "outputPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj": {
-                "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj"
-              },
-              "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
-                "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
+              "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj": {
+                "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj"
               }
             }
           }
@@ -505,81 +502,14 @@
         }
       }
     },
-    "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj": {
+    "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
-        "projectName": "BookStore.Domain",
-        "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj",
+        "projectName": "BookStore.Application",
+        "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj",
         "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\shpvk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net9.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net9.0": {
-            "framework": "net9.0",
-            "targetAlias": "net9.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.200"
-      },
-      "frameworks": {
-        "net9.0": {
-          "framework": "net9.0",
-          "targetAlias": "net9.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
-        "projectName": "BookStore.Infrastructure",
-        "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\BookStore\\backend\\BookStore.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -601,8 +531,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj": {
-                "projectPath": "D:\\Projects\\BookStore\\backend\\BookStore.Domain\\BookStore.Domain.csproj"
+              "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj"
               }
             }
           }
@@ -914,6 +844,73 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
+        }
+      }
+    },
+    "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
+        "projectName": "BookStore.Domain",
+        "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
+        "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\shpvk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "framework": "net9.0",
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "framework": "net9.0",
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

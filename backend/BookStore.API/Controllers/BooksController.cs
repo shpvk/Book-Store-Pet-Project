@@ -1,6 +1,4 @@
-using BookStore.Domain.Models;
 using BookStore.Domain.Repository;
-using BookStore.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -27,3 +25,4 @@ namespace BookStore.API.Controllers
 
     }
 }
+
