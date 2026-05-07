@@ -2,7 +2,7 @@
 using BookStore.Domain.Repository;
 using System.Linq;
 
-namespace BookStore.Infrastructure
+namespace BookStore.Infrastructure.Repositories
 {
     public class BookRepository : IBookRepository
     {
@@ -17,10 +17,10 @@ namespace BookStore.Infrastructure
 
         public IEnumerable<Book> GetBooks()
         {
-            return this.books;
+            return books;
         }
 
-        Book[] BetAllByTitle(string titlePart)
+        Book[] GetAllByTitle(string titlePart)
         {
             return books.Where(book => book.Title.Contains(titlePart))
                 .ToArray();
