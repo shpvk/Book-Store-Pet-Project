@@ -9,12 +9,16 @@ namespace BookStore.Infrastructure
 
         private readonly Book[] books = new[]
         {
-            Book.Create(1, "Грокаем алгоритмы", "описание", 1200).Book!,
-            Book.Create(2, "Чистая архитектура", "описание", 1200).Book!,
-            Book.Create(3, "Код: тайный язык информатики", "описание", 1200).Book!,
-            Book.Create(4, "Язык программирования C++", "описание", 1200).Book!,
+            Book.Create(1, "Грокаем алгоритмы", "описание", 800, "algorithms.jpg").Book!,
+            Book.Create(2, "Чистая архитектура", "описание", 1250, "architecture.jpg").Book!,
+            Book.Create(3, "Код: тайный язык информатики", "описание", 1100, "code.jpg").Book!,
+            Book.Create(4, "Язык программирования C++", "описание", 1090, "cpp.jpg").Book!,
         };
 
+        public IEnumerable<Book> GetBooks()
+        {
+            return this.books;
+        }
 
         Book[] BetAllByTitle(string titlePart)
         {

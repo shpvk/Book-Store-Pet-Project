@@ -1,10 +1,26 @@
-<div class="card" *ngFor="let book of books">
-  <img [src]="imageBaseUrl + book.image" [alt]="book.title">
-  
-  <div class="info">
-    <h4>{{ book.title }}</h4>
-    <p class="author">{{ book.author }}</p>
-    <p class="price">{{ book.price }} грн</p>
-    <button class="btn">Купить</button>
+@if (errorMessage) {
+  <div class="error-container">
+    <img src="assets/server-error.png" alt="Error" style="width: 200px;">
+    <h2>Упс! Что-то пошло не так</h2>
+    <p>{{ errorMessage }}</p>
+    <button (click)="ngOnInit()">Повторить попытку</button>
   </div>
-</div>
+} @else {
+  @if (books.length > 0) {
+    <div class="grid">
+      @for (book of books; track book.id) {
+        <div class="card">
+          <img [src]="imageBaseUrl + book.image" [alt]="book.title">
+          <h3>{{ book.title }}</h3>
+          <p class="price">{{ book.price }} грн</p>
+        </div>
+      }
+    </div>
+  }
+
+  @if (books.length === 0 && !errorMessage) {
+    <div style="text-align: center; padding: 50px;">
+      <p style="color: blue; font-size: 20px;">Загрузка данных... (Длина: {{ books.length }})</p>
+    </div>
+  }
+}

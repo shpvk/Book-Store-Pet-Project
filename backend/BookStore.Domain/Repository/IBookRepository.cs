@@ -4,9 +4,6 @@ namespace BookStore.Domain.Repository
 {
     public interface IBookRepository
     {
-        Book[] BetAllByTitle(string titlePart)
-        {
-            
-        }
+        public IEnumerable<Book> GetBooks();
     }
 }
