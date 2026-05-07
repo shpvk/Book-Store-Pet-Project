@@ -7,3 +7,9 @@ namespace BookStore.Domain.Repository
         public IEnumerable<Book> GetBooks();
     }
 }
+/*
+     GetById
+     Create
+     Update
+     Delete
+ */
