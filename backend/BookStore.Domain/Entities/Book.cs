@@ -8,7 +8,7 @@
         public string Description { get; } = string.Empty;
         public decimal Price { get; }
 
-        public string Image { get; set; }
+        public string Image { get; }
 
 
         public const int MAX_TITLE_LENGTH = 250;
@@ -22,17 +22,25 @@
             Image = image;
         }
 
+        private Book() { } // For EF Core
+
         public static (Book? Book, string? Error) Create(int id, string title, string description, decimal price, string image)
         {
-            if(string.IsNullOrEmpty(title) || title.Length <= MAX_TITLE_LENGTH)
+            if(string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
             {
                 return (null, "Title cannot be empty");
             }
 
-            if(string.IsNullOrEmpty(description) || title.Length <= MAX_DESCRIPTION_LENGTH)
+            if(string.IsNullOrEmpty(description) || description.Length > MAX_DESCRIPTION_LENGTH)
             {
                 return (null, "Description cannot be empty");
             }
+
+            if(price < 0)
+            {
+                return (null, "Price cannot be lower than zero");
+            }
+
             Book book = new Book(id, title, description, price, image);
             return (book, null);
         }
