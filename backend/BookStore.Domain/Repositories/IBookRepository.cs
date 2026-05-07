@@ -4,6 +4,6 @@ namespace BookStore.Domain.Repository
 {
     public interface IBookRepository
     {
-        public IEnumerable<Book> GetBooks();
+        public IEnumerable<Book[]> GetBooks();
     }
 }
