@@ -2,31 +2,34 @@
 using BookStore.Application.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Domain.Repository;
-using System.Security.Authentication.ExtendedProtection;
 namespace BookStore.Application.Services
 {
     public class BookService : IBookService
     {
-        public readonly IBookRepository _bookRepository;
+        private readonly IBookRepository _bookRepository;
 
         public BookService(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
         }
-        
+
 
         public BookDto[] GetBooks()
         {
-            BookDto[] BooksDto;
-            Book[] Books = _bookRepository.GetBooks();
-            for(int i = 0; i < Books.Length; ++i)
+
+            Book[] books = _bookRepository.GetBooks().ToArray();
+            BookDto[] booksDto = new BookDto[books.Length];
+
+            for (int i = 0; i < books.Length; ++i)
             {
-                BooksDto[i].Title = Books[i].Title;
-                BooksDto[i].Price = Books[i].Price;
-                BooksDto[i].Image = Books[i].Image;
+                booksDto[i] = new BookDto();
+                booksDto[i].Id = books[i].Id;
+                booksDto[i].Title = books[i].Title;
+                booksDto[i].Price = books[i].Price;
+                booksDto[i].Image = books[i].Image;
             }
 
-            return BooksDto;
+            return booksDto;
         }
     }
 }

@@ -12,5 +12,15 @@
     "C:\\Users\\shpvk\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.7\\swashbuckle.aspnetcore.swaggergen.10.1.7.nupkg.sha512",
     "C:\\Users\\shpvk\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\10.1.7\\swashbuckle.aspnetcore.swaggerui.10.1.7.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
