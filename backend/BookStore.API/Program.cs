@@ -1,3 +1,4 @@
+using BookStore.Application.Interfaces;
 using BookStore.Domain.Repository;
 using BookStore.Infrastructure;
 
@@ -22,7 +23,7 @@ namespace BookStore.API
                 });
             });
 
-            builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IBookService>();
 
             builder.Services.AddHttpLogging(logging => { });
 

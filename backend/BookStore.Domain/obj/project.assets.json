@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
+      "projectUniqueName": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
       "projectName": "BookStore.Domain",
-      "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
+      "projectPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\BookStore.Domain.csproj",
       "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\obj\\",
+      "outputPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

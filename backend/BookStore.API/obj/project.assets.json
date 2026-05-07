@@ -538,11 +538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
+      "projectUniqueName": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
       "projectName": "BookStore.API",
-      "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
+      "projectPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\BookStore.API.csproj",
       "packagesPath": "C:\\Users\\shpvk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.API\\obj\\",
+      "outputPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -564,8 +564,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj": {
-              "projectPath": "C:\\Users\\shpvk\\source\\repos\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj"
+            "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj": {
+              "projectPath": "D:\\Projects\\Book-Store-Pet-Project\\backend\\BookStore.Application\\BookStore.Application.csproj"
             }
           }
         }

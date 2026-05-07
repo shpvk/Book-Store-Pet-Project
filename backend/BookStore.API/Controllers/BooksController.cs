@@ -1,4 +1,4 @@
-using BookStore.Domain.Repository;
+using BookStore.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -8,21 +8,20 @@ namespace BookStore.API.Controllers
     public class BooksController : ControllerBase
     {
 
-        private readonly IBookRepository _repository;
+        // private readonly IBookRepository _repository; -> Было
+        private readonly IBookService _bookService; // -> Стало
 
-        public BooksController(IBookRepository repository)
+        public BooksController(IBookService bookService)
         {
-            _repository = repository;
+            _bookService = bookService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var books = _repository.GetBooks();
+            var books = _bookService.GetBooks();
             return Ok(books);
         }
-
-
     }
 }
 
