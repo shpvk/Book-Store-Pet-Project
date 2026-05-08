@@ -2,6 +2,7 @@
 using BookStore.Application.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Domain.Repository;
+using static System.Net.WebRequestMethods;
 namespace BookStore.Application.Services
 {
     public class BookService : IBookService
@@ -43,7 +44,7 @@ namespace BookStore.Application.Services
             }
             if(book == null)
             {
-                throw new Exception(Error);
+                throw new Exception("Book creation failed");
             }
 
 
