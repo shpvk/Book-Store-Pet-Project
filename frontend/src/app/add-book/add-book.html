@@ -1,0 +1,29 @@
+<div class="page-wrapper">
+  <div class="card">
+    <h1>Create New Entry</h1>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label>Book Title</label>
+        <input type="text" formControlName="title" placeholder="e.g. Clean Code">
+        <div *ngIf="bookForm.get('title')?.touched && bookForm.get('title')?.invalid" class="error">
+          Valid title is required.
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Description</label>
+        <textarea formControlName="description" rows="4" placeholder="Brief summary..."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Price (UAH)</label>
+        <input type="number" formControlName="price">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-secondary" (click)="router.navigate(['/'])">Back</button>
+        <button type="submit" class="btn-primary" [disabled]="bookForm.invalid">Save Book</button>
+      </div>
+    </form>
+  </div>
+</div>

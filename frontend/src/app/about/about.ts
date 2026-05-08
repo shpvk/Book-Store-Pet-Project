@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  imports: [],
-  templateUrl: './about.html',
-  styleUrl: './about.css',
+  standalone: true,
+  template: '<h1>About Page</h1>'
 })
 export class About {}

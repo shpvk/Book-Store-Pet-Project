@@ -1,9 +1,13 @@
-<nav style="padding: 15px; background: #eee;">
-  <a routerLink="/">Главная</a> | 
-  <a routerLink="/about">О магазине</a> | 
-  <a routerLink="/contacts">Контакты</a>
-</nav>
+<header class="navbar">
+  <div class="logo">BookStore</div>
+  <nav class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
+    <a routerLink="/add" class="btn-add" routerLinkActive="active">Add Book</a>
+  </nav>
+</header>
 
-<hr>
-
-<router-outlet></router-outlet>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

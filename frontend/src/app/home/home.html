@@ -1,26 +1,23 @@
-@if (errorMessage) {
-  <div class="error-container">
-    <img src="assets/server-error.png" alt="Error" style="width: 200px;">
-    <h2>Упс! Что-то пошло не так</h2>
-    <p>{{ errorMessage }}</p>
-    <button (click)="ngOnInit()">Повторить попытку</button>
-  </div>
-} @else {
-  @if (books.length > 0) {
-    <div class="grid">
-      @for (book of books; track book.id) {
-        <div class="card">
-          <img [src]="imageBaseUrl + book.image" [alt]="book.title">
-          <h3>{{ book.title }}</h3>
-          <p class="price">{{ book.price }} грн</p>
+<div class="grid">
+  @for (book of books; track book.id) {
+    <div class="book-card">
+      <div class="image-container">
+        <img [src]="imageBaseUrl + book.image" [alt]="book.title" [routerLink]="['/book', book.id]" style="cursor: pointer;">
+      </div>
+      <div class="card-content">
+        <h3>{{ book.title }}</h3>
+        <p class="description">{{ book.description }}</p>
+        <div class="card-footer">
+          <span class="price">{{ book.price }} UAH</span>
+          <button class="btn-buy" [routerLink]="['/book', book.id]">Details</button>
         </div>
-      }
+      </div>
     </div>
   }
+</div>
 
-  @if (books.length === 0 && !errorMessage) {
-    <div style="text-align: center; padding: 50px;">
-      <p style="color: blue; font-size: 20px;">Загрузка данных... (Длина: {{ books.length }})</p>
-    </div>
-  }
+@if (books.length === 0 && !errorMessage) {
+  <div class="empty-state">
+    <p>No books available at the moment.</p>
+  </div>
 }

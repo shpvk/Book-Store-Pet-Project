@@ -8,9 +8,7 @@ namespace BookStore.API.Controllers
     [Route("api/[controller]")]
     public class BooksController : ControllerBase
     {
-
-        // private readonly IBookRepository _repository; -> Было
-        private readonly IBookService _bookService; // -> Стало
+        private readonly IBookService _bookService;
 
         public BooksController(IBookService bookService)
         {
