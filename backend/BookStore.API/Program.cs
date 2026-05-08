@@ -1,6 +1,7 @@
 using BookStore.Application.Interfaces;
 using BookStore.Application.Services;
 using BookStore.Domain.Repository;
+using BookStore.Infrastructure.Extensions;
 using BookStore.Infrastructure.Repositories;
 
 namespace BookStore.API
@@ -31,6 +32,8 @@ namespace BookStore.API
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDatabase();
 
             var app = builder.Build();
 
