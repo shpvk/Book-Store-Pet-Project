@@ -46,11 +46,9 @@ namespace BookStore.Application.Services
             {
                 throw new Exception("Book creation failed");
             }
-
-
-            BookResponse bookResponse = new BookResponse();
             Book savedBook = await _bookRepository.AddAsync(book);
 
+            BookResponse bookResponse = new BookResponse();
             bookResponse.Id = savedBook.Id;
             bookResponse.Title = savedBook.Title;
             bookResponse.Price = savedBook.Price;

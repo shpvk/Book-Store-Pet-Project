@@ -1,3 +1,4 @@
+using BookStore.Application.DTOs;
 using BookStore.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,17 @@ namespace BookStore.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var books = _bookService.GetBooks();
+            var books = await _bookService.GetBooksAsync();
             return Ok(books);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateBookRequest createBookRequest)
+        {
+            var createdBook = await _bookService.CreateBookAsync(createBookRequest);
+            return Ok(createdBook);
         }
     }
 }
