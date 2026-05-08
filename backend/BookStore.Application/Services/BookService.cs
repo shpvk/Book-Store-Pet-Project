@@ -17,24 +17,44 @@ namespace BookStore.Application.Services
         public async Task<List<BookResponse>> GetBooksAsync()
         {
 
-            List<BookResponse> bookResponses = _bookRepository.GetBooks();
-            List<BookResponse> booksDto = new BookResponse[books.Length];
+            List<Book> books = await _bookRepository.GetBooksAsync();
+            List<BookResponse> booksDto = new List<BookResponse>();
 
-            for (int i = 0; i < books.Length; ++i)
+            foreach(Book book in books)
             {
-                booksDto[i] = new BookResponse();
-                booksDto[i].Id = books[i].Id;
-                booksDto[i].Title = books[i].Title;
-                booksDto[i].Price = books[i].Price;
-                booksDto[i].Image = books[i].Image;
+                BookResponse bookResponse = new BookResponse();
+                bookResponse.Title = book.Title;
+                bookResponse.Id = book.Id;
+                bookResponse.Price = book.Price;
+                bookResponse.Image = book.Image;
+                booksDto.Add(bookResponse);
             }
-
             return booksDto;
         }
 
-        public Task<BookResponse> CreateBookAsync(CreateBookRequest createBookRequest)
+        public async Task<BookResponse> CreateBookAsync(CreateBookRequest createBookRequest)
         {
+            (Book? book, string ? Error) = Book.Create(createBookRequest.Title, createBookRequest.Description, createBookRequest.Price, createBookRequest.Image);
 
+
+            if(Error != null)
+            {
+                throw new Exception(Error);
+            }
+            if(book == null)
+            {
+                throw new Exception(Error);
+            }
+
+
+            BookResponse bookResponse = new BookResponse();
+            Book savedBook = await _bookRepository.AddAsync(book);
+
+            bookResponse.Id = savedBook.Id;
+            bookResponse.Title = savedBook.Title;
+            bookResponse.Price = savedBook.Price;
+            bookResponse.Image = savedBook.Image;
+            return bookResponse;
         }
 
     }

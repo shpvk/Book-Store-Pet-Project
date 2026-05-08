@@ -21,6 +21,13 @@
             Price = price;
             Image = image;
         }
+        private Book(string title, string description, decimal price, string image)
+        {
+            Title = title;
+            Description = description;
+            Price = price;
+            Image = image;
+        }
 
         private Book() { } // For EF Core
 
@@ -45,8 +52,27 @@
             return (book, null);
         }
 
-        
 
-        
+        public static (Book? Book, string? Error) Create(string title, string description, decimal price, string image)
+        {
+            if (string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
+            {
+                return (null, "Title cannot be empty");
+            }
+
+            if (string.IsNullOrEmpty(description) || description.Length > MAX_DESCRIPTION_LENGTH)
+            {
+                return (null, "Description cannot be empty");
+            }
+
+            if (price < 0)
+            {
+                return (null, "Price cannot be lower than zero");
+            }
+
+            Book book = new Book(title, description, price, image);
+            return (book, null);
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace BookStore.Infrastructure.Repositories
             List<Book> books = await bookContext.Books.ToListAsync();
             return books;
         }
-        public async Task<Book> CreateBookAsync(Book book)
+        public async Task<Book> AddAsync(Book book)
         {
             await bookContext.Books.AddAsync(book);
             await bookContext.SaveChangesAsync();
