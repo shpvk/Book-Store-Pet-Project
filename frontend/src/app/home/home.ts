@@ -25,18 +25,40 @@ export class Home implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadBooks();
+  }
+
+  loadBooks(): void {
     this.bookService.getBooks().subscribe({
       next: (data) => {
         this.books = [...data];
         this.errorMessage = null;
         this.cdr.detectChanges();
       },
-      error: (err) => {
+      error: (err: any) => {
         this.errorMessage = 'Could not load the catalog. Please try again later.';
         console.error(err);
         this.cdr.detectChanges();
       }
     });
+  }
+
+  onDeleteBook(id: number, event: Event): void {
+    event.stopPropagation();
+    
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => {
+          this.books = this.books.filter(book => book.id !== id);
+          this.activeMenuId = null;
+          this.cdr.detectChanges();
+        },
+        error: (err: any) => {
+          console.error('Delete failed:', err);
+          alert('Failed to delete the book. Check console for details.');
+        }
+      });
+    }
   }
 
   toggleMenu(id: number, event: Event): void {
