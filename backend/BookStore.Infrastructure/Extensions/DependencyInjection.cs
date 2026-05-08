@@ -11,7 +11,7 @@ namespace BookStore.Infrastructure.Extensions
         {
             serviceCollection.AddDbContext<BookContext>(x =>
             {
-                x.UseNpgsql("Host=localhost;Database=Books;Username=postgres;Password=0117");
+                x.UseNpgsql("Host=localhost;Database=Books;Username=postgres;Password=0117"); // temporary
             });
         }
     }

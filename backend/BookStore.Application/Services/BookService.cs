@@ -14,15 +14,15 @@ namespace BookStore.Application.Services
         }
 
 
-        public BookDto[] GetBooks()
+        public BookResponseDto[] GetBooks()
         {
 
             Book[] books = _bookRepository.GetBooks().ToArray();
-            BookDto[] booksDto = new BookDto[books.Length];
+            BookResponseDto[] booksDto = new BookResponseDto[books.Length];
 
             for (int i = 0; i < books.Length; ++i)
             {
-                booksDto[i] = new BookDto();
+                booksDto[i] = new BookResponseDto();
                 booksDto[i].Id = books[i].Id;
                 booksDto[i].Title = books[i].Title;
                 booksDto[i].Price = books[i].Price;

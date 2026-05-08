@@ -5,6 +5,6 @@ namespace BookStore.Application.Interfaces
 {
     public interface IBookService
     {
-        BookDto[] GetBooks();
+        BookResponseDto[] GetBooks();
     }
 }
