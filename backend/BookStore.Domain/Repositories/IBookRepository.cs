@@ -4,7 +4,8 @@ namespace BookStore.Domain.Repository
 {
     public interface IBookRepository
     {
-        public IEnumerable<Book> GetBooks();
+        public Task<List<Book>> GetBooksAsync();
+        public Task<Book> CreateBookAsync(Book book);
     }
 }
 /*

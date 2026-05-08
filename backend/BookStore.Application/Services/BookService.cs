@@ -14,15 +14,15 @@ namespace BookStore.Application.Services
         }
 
 
-        public BookResponseDto[] GetBooks()
+        public async Task<List<BookResponse>> GetBooksAsync()
         {
 
-            Book[] books = _bookRepository.GetBooks().ToArray();
-            BookResponseDto[] booksDto = new BookResponseDto[books.Length];
+            List<BookResponse> bookResponses = _bookRepository.GetBooks();
+            List<BookResponse> booksDto = new BookResponse[books.Length];
 
             for (int i = 0; i < books.Length; ++i)
             {
-                booksDto[i] = new BookResponseDto();
+                booksDto[i] = new BookResponse();
                 booksDto[i].Id = books[i].Id;
                 booksDto[i].Title = books[i].Title;
                 booksDto[i].Price = books[i].Price;
@@ -31,5 +31,11 @@ namespace BookStore.Application.Services
 
             return booksDto;
         }
+
+        public Task<BookResponse> CreateBookAsync(CreateBookRequest createBookRequest)
+        {
+
+        }
+
     }
 }
