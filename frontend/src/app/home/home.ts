@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BookService } from '../book.service';
@@ -17,6 +17,7 @@ export class Home implements OnInit {
   books: any[] = [];
   errorMessage: string | null = null;
   imageBaseUrl: string = 'https://localhost:5000/images/books/';
+  activeMenuId: number | null = null;
 
   constructor(
     private bookService: BookService,
@@ -36,5 +37,21 @@ export class Home implements OnInit {
         this.cdr.detectChanges();
       }
     });
+  }
+
+  toggleMenu(id: number, event: Event): void {
+    event.stopPropagation();
+    this.activeMenuId = this.activeMenuId === id ? null : id;
+  }
+
+  @HostListener('document:click')
+  closeMenu(): void {
+    this.activeMenuId = null;
+  }
+
+  getBookImage(imageName: string): string {
+    if (!imageName) return 'assets/no-cover.png';
+    if (imageName.startsWith('http')) return imageName;
+    return `${this.imageBaseUrl}${imageName}`;
   }
 }
