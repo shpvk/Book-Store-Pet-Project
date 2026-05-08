@@ -8,16 +8,21 @@ import { Observable } from 'rxjs';
 export class BookService {
   private apiUrl = 'https://localhost:5000/api/Books';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getBooks(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  createBook(book: any): Observable<any> {
-    return this.http.post(this.apiUrl, book);
+  getBookById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
-  getBookById(id: string): Observable<any> {
-  return this.http.get(`${this.apiUrl}/${id}`);
+
+  createBook(bookData: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, bookData);
+  }
+
+  deleteBook(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}?bookId=${id}`);
   }
 }

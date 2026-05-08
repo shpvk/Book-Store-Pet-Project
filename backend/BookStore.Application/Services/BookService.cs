@@ -2,7 +2,6 @@
 using BookStore.Application.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Domain.Repository;
-using static System.Net.WebRequestMethods;
 namespace BookStore.Application.Services
 {
     public class BookService : IBookService
@@ -36,8 +35,6 @@ namespace BookStore.Application.Services
         public async Task<BookResponse> CreateBookAsync(CreateBookRequest createBookRequest)
         {
             (Book? book, string ? Error) = Book.Create(createBookRequest.Title, createBookRequest.Description, createBookRequest.Price, createBookRequest.Image);
-
-
             if(Error != null)
             {
                 throw new Exception(Error);
@@ -54,6 +51,11 @@ namespace BookStore.Application.Services
             bookResponse.Price = savedBook.Price;
             bookResponse.Image = savedBook.Image;
             return bookResponse;
+        }
+
+        public async Task DeleteBookAsync(int id)
+        {
+            _bookRepository.DeleteAsync(id);
         }
 
     }

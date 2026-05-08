@@ -1,23 +1,36 @@
 <div class="grid">
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <div class="book-card" *ngFor="let book of books">
     <div class="more-menu" [class.active]="activeMenuId === book.id">
       <button class="menu-dot-btn" (click)="toggleMenu(book.id, $event)">⋮</button>
+      
       <div class="menu-dropdown">
-        <button>Edit</button>
-        <button class="delete-btn">Delete</button>
+        <button (click)="$event.stopPropagation()">Edit</button>
+        
+        <button class="delete-btn" (click)="onDeleteBook(book.id, $event)">
+          Delete
+        </button>
       </div>
     </div>
     
-    <div class="image-container">
+    <div class="image-container" [routerLink]="['/book', book.id]">
       <img [src]="getBookImage(book.image)" alt="book cover">
     </div>
         
     <div class="card-content">
-      <h3>{{book.title}}</h3>
+      <h3 [routerLink]="['/book', book.id]" style="cursor: pointer;">
+        {{book.title}}
+      </h3>
       <p class="description">{{book.description}}</p>
+      
       <div class="card-footer">
         <span class="price">{{book.price}} UAH</span>
-        <button class="btn-details">Details</button>
+        <button [routerLink]="['/book', book.id]" class="btn-details">
+          Details
+        </button>
       </div>
     </div>
   </div>

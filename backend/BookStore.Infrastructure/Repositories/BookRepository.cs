@@ -19,6 +19,14 @@ namespace BookStore.Infrastructure.Repositories
             return book;
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            await bookContext.Books
+                .Where(book => book.Id == id)
+                .ExecuteDeleteAsync();
+        }
+
+
     }
 
 }

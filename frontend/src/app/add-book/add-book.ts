@@ -33,7 +33,7 @@ export class AddBook {
         next: () => {
           this.router.navigate(['/']);
         },
-        error: (err) => console.error(err)
+        error: (err: any) => console.error(err)
       });
     }
   }

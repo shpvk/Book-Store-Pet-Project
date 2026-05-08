@@ -6,6 +6,8 @@ namespace BookStore.Domain.Repository
     {
         public Task<List<Book>> GetBooksAsync();
         public Task<Book> AddAsync(Book book);
+
+        public Task DeleteAsync(int id);
     }
 }
 /*

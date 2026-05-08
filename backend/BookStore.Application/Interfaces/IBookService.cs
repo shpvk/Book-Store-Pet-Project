@@ -7,5 +7,7 @@ namespace BookStore.Application.Interfaces
     {
         Task<List<BookResponse>> GetBooksAsync();
         Task<BookResponse> CreateBookAsync(CreateBookRequest createBookRequest);
+        Task DeleteBookAsync(int id);
+
     }
 }

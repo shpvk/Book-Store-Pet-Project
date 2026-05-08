@@ -20,12 +20,13 @@ export class BookDetails implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.bookService.getBookById(id).subscribe({
-        next: (data) => this.book = data,
-        error: (err) => console.error(err)
-      });
-    }
+  const idParam = this.route.snapshot.paramMap.get('id');
+  if (idParam) {
+    const id = +idParam; // Конвертируем строку в число с помощью '+'
+    this.bookService.getBookById(id).subscribe({
+      next: (data: any) => this.book = data,
+      error: (err: any) => console.error(err)
+    });
+  }
   }
 }

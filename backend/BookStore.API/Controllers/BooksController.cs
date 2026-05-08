@@ -1,6 +1,7 @@
 using BookStore.Application.DTOs;
 using BookStore.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace BookStore.API.Controllers
 {
@@ -27,6 +28,13 @@ namespace BookStore.API.Controllers
         {
             var createdBook = await _bookService.CreateBookAsync(createBookRequest);
             return Ok(createdBook);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int bookId)
+        {
+            await _bookService.DeleteBookAsync(bookId);
+            return Ok();
         }
     }
 }
