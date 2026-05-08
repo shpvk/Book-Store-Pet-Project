@@ -27,8 +27,8 @@ namespace BookStore.API
             });
 
             builder.Services.AddScoped<IBookService, BookService>();
-            builder.Services.AddScoped<BookContext>();
-            //builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddDbContext<BookContext>();
+            builder.Services.AddScoped<IBookRepository, BookRepository>();
 
             builder.Services.AddHttpLogging(logging => { });
 
