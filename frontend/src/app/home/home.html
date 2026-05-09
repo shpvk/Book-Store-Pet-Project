@@ -8,7 +8,7 @@
     *ngFor="let book of books()"
     tabindex="0"
     role="button"
-    [attr.aria-label]="'Show description for ' + book.title"
+    [attr.aria-label]="'Show description for ' + (book.title || 'book')"
     (click)="openDetailsModal(book, $event)"
     (keydown.enter)="openDetailsModal(book, $event)"
     (keydown.space)="openDetailsModal(book, $event)"
@@ -33,14 +33,14 @@
     </div>
 
     <div class="image-container">
-      <img [src]="getBookImage(book.image)" [alt]="book.title + ' cover'">
+      <img [src]="getBookImage(book.image)" [alt]="(book.title || 'Book') + ' cover'">
     </div>
 
     <div class="card-content">
       <h3>
-        {{ book.title }}
+        {{ book.title || 'Untitled book' }}
       </h3>
-      <p class="description">{{ book.description }}</p>
+      <p class="description">{{ getDescriptionPreview(book.description) }}</p>
 
       <div class="card-footer">
         <span class="price">{{ book.price }} UAH</span>
@@ -120,14 +120,14 @@
     (click)="$event.stopPropagation()"
   >
     <div class="modal-header">
-      <h2 id="details-book-title">{{ selectedBook.title }}</h2>
+      <h2 id="details-book-title">{{ selectedBook.title || 'Untitled book' }}</h2>
       <button type="button" class="modal-close" aria-label="Close details window" (click)="closeDetailsModal()">
         x
       </button>
     </div>
 
     <p class="details-description">
-      {{ selectedBook.description }}
+      {{ selectedBook.description || 'No description available.' }}
     </p>
 
     <div class="modal-actions">

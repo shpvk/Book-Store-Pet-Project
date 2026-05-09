@@ -1,7 +1,7 @@
 export interface Book {
   id: number;
   title: string;
-  description: string;
+  description?: string | null;
   price: number;
   image?: string | null;
 }

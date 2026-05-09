@@ -13,6 +13,7 @@ import { Book, UpdateBookPayload } from '../books/book.model';
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
+  private readonly descriptionPreviewWords = 5;
   private readonly bookService = inject(BookService);
   private readonly fb = inject(NonNullableFormBuilder);
 
@@ -56,7 +57,7 @@ export class Home implements OnInit {
     this.editingBook.set(book);
     this.editForm.reset({
       title: book.title,
-      description: book.description,
+      description: book.description ?? '',
       price: book.price,
       image: book.image ?? ''
     });
@@ -153,5 +154,21 @@ export class Home implements OnInit {
 
   getBookImage(imageName: string | null | undefined): string {
     return getBookImageUrl(imageName);
+  }
+
+  getDescriptionPreview(description: string | null | undefined): string {
+    const normalizedDescription = description?.trim() ?? '';
+
+    if (!normalizedDescription) {
+      return 'No description...';
+    }
+
+    const words = normalizedDescription.split(/\s+/).filter(Boolean);
+
+    if (words.length <= this.descriptionPreviewWords) {
+      return normalizedDescription;
+    }
+
+    return `${words.slice(0, this.descriptionPreviewWords).join(' ')}...`;
   }
 }
