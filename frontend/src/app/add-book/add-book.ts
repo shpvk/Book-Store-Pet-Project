@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookService } from '../book.service';
+import { CreateBookPayload } from '../books/book.model';
 
 @Component({
   selector: 'app-add-book',
@@ -12,29 +13,30 @@ import { BookService } from '../book.service';
   styleUrl: './add-book.css'
 })
 export class AddBook {
-  bookForm: FormGroup;
+  private readonly fb = inject(NonNullableFormBuilder);
+  private readonly bookService = inject(BookService);
+  readonly router = inject(Router);
 
-  constructor(
-    private fb: FormBuilder,
-    private bookService: BookService,
-    public router: Router
-  ) {
-    this.bookForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required]],
-      price: [0, [Validators.required, Validators.min(1)]],
-      image: ['example.jpg']
-    });
-  }
+  readonly bookForm = this.fb.group({
+    title: ['', [Validators.required, Validators.minLength(3)]],
+    description: ['', [Validators.required]],
+    price: [0, [Validators.required, Validators.min(1)]],
+    image: ['example.jpg']
+  });
 
   onSubmit(): void {
-    if (this.bookForm.valid) {
-      this.bookService.createBook(this.bookForm.value).subscribe({
-        next: () => {
-          this.router.navigate(['/']);
-        },
-        error: (err: any) => console.error(err)
-      });
+    if (this.bookForm.invalid) {
+      this.bookForm.markAllAsTouched();
+      return;
     }
+
+    const payload: CreateBookPayload = this.bookForm.getRawValue();
+
+    this.bookService.createBook(payload).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (err: unknown) => console.error(err)
+    });
   }
 }

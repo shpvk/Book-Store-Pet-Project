@@ -1,13 +1,18 @@
 <header class="navbar">
   <a routerLink="/" class="logo">BookStore</a>
-  <nav class="nav-links">
+  <nav class="nav-links" aria-label="Primary navigation">
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
     <a routerLink="/about" routerLinkActive="active">About</a>
     <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
-    
-  <button (click)="toggleTheme()" class="theme-toggle">
-    {{ theme.isDarkMode() ? '☀️' : '🌙' }}
-  </button>
+
+    <button
+      type="button"
+      (click)="toggleTheme()"
+      class="theme-toggle"
+      [attr.aria-label]="theme.isDarkMode() ? 'Use light theme' : 'Use dark theme'"
+    >
+      {{ theme.isDarkMode() ? 'Light' : 'Dark' }}
+    </button>
 
     <a routerLink="/add" class="btn-add" routerLinkActive="active">Add Book</a>
   </nav>

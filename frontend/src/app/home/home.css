@@ -8,7 +8,6 @@
 .book-card {
   background-color: var(--card-bg);
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
   display: flex;
@@ -16,10 +15,16 @@
   border: 1px solid var(--border-color);
   position: relative;
   height: auto; 
+  cursor: pointer;
 }
 
 .book-card:hover {
   transform: translateY(-5px);
+}
+
+.book-card:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 4px;
 }
 
 .image-container {
@@ -118,6 +123,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   min-width: 130px;
   overflow: hidden;
+  z-index: 20;
 }
 
 .more-menu.active .menu-dropdown {
@@ -147,4 +153,141 @@
 
 .menu-dropdown button.delete-btn:hover {
   background-color: rgba(239, 68, 68, 0.1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.edit-modal {
+  width: min(520px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  padding: 24px;
+}
+
+.details-modal {
+  width: min(560px, 100%);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.field span {
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-main);
+  font: inherit;
+  padding: 11px 12px;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.24);
+  border-color: #2563eb;
+}
+
+.field small,
+.edit-error {
+  color: #ef4444;
+  font-size: 0.82rem;
+}
+
+.edit-error {
+  margin: 0 0 14px;
+}
+
+.details-description {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-cancel,
+.btn-save {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 11px 16px;
+}
+
+.btn-cancel {
+  background: var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-save {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-cancel:disabled,
+.btn-save:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

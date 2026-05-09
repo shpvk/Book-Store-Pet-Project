@@ -1,16 +1,20 @@
-<div class="details-container" *ngIf="book">
+<p class="error-message" *ngIf="errorMessage()">
+  {{ errorMessage() }}
+</p>
+
+<div class="details-container" *ngIf="book() as selectedBook">
   <div class="details-card">
     <div class="image-section">
-      <img [src]="imageBaseUrl + book.image" [alt]="book.title">
+      <img [src]="getBookImage(selectedBook.image)" [alt]="selectedBook.title + ' cover'">
     </div>
     <div class="info-section">
-      <h1>{{ book.title }}</h1>
-      <p class="price-tag">{{ book.price }} UAH</p>
+      <h1>{{ selectedBook.title }}</h1>
+      <p class="price-tag">{{ selectedBook.price }} UAH</p>
       <div class="description-box">
         <h3>Description</h3>
-        <p>{{ book.description }}</p>
+        <p>{{ selectedBook.description }}</p>
       </div>
-      <button class="btn-back" routerLink="/">Back to Catalog</button>
+      <button type="button" class="btn-back" routerLink="/">Back to Catalog</button>
     </div>
   </div>
 </div>

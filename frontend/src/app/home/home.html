@@ -1,37 +1,137 @@
 <div class="grid">
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
+  <div *ngIf="errorMessage()" class="error-message">
+    {{ errorMessage() }}
   </div>
 
-  <div class="book-card" *ngFor="let book of books">
-    <div class="more-menu" [class.active]="activeMenuId === book.id">
-      <button class="menu-dot-btn" (click)="toggleMenu(book.id, $event)">⋮</button>
-      
+  <article
+    class="book-card"
+    *ngFor="let book of books()"
+    tabindex="0"
+    role="button"
+    [attr.aria-label]="'Show description for ' + book.title"
+    (click)="openDetailsModal(book, $event)"
+    (keydown.enter)="openDetailsModal(book, $event)"
+    (keydown.space)="openDetailsModal(book, $event)"
+  >
+    <div class="more-menu" [class.active]="activeMenuId() === book.id">
+      <button
+        class="menu-dot-btn"
+        type="button"
+        aria-label="Book actions"
+        (click)="toggleMenu(book.id, $event)"
+      >
+        ...
+      </button>
+
       <div class="menu-dropdown">
-        <button (click)="$event.stopPropagation()">Edit</button>
-        
-        <button class="delete-btn" (click)="onDeleteBook(book.id, $event)">
+        <button type="button" (click)="openEditModal(book, $event)">Edit</button>
+
+        <button type="button" class="delete-btn" (click)="onDeleteBook(book.id, $event)">
           Delete
         </button>
       </div>
     </div>
-    
-    <div class="image-container" [routerLink]="['/book', book.id]">
-      <img [src]="getBookImage(book.image)" alt="book cover">
+
+    <div class="image-container">
+      <img [src]="getBookImage(book.image)" [alt]="book.title + ' cover'">
     </div>
-        
+
     <div class="card-content">
-      <h3 [routerLink]="['/book', book.id]" style="cursor: pointer;">
-        {{book.title}}
+      <h3>
+        {{ book.title }}
       </h3>
-      <p class="description">{{book.description}}</p>
-      
+      <p class="description">{{ book.description }}</p>
+
       <div class="card-footer">
-        <span class="price">{{book.price}} UAH</span>
-        <button [routerLink]="['/book', book.id]" class="btn-details">
+        <span class="price">{{ book.price }} UAH</span>
+        <button type="button" class="btn-details" (click)="openDetailsModal(book, $event)">
           Details
         </button>
       </div>
     </div>
-  </div>
+  </article>
+</div>
+
+<div class="modal-backdrop" *ngIf="editingBook()" (click)="closeEditModal()">
+  <section
+    class="edit-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="edit-book-title"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="modal-header">
+      <h2 id="edit-book-title">Edit Book</h2>
+      <button type="button" class="modal-close" aria-label="Close edit window" (click)="closeEditModal()">
+        x
+      </button>
+    </div>
+
+    <form [formGroup]="editForm" (ngSubmit)="saveBookChanges()">
+      <label class="field">
+        <span>Book Title</span>
+        <input type="text" formControlName="title">
+        <small *ngIf="editForm.controls.title.touched && editForm.controls.title.invalid">
+          Title must contain at least 3 characters.
+        </small>
+      </label>
+
+      <label class="field">
+        <span>Description</span>
+        <textarea rows="4" formControlName="description"></textarea>
+        <small *ngIf="editForm.controls.description.touched && editForm.controls.description.invalid">
+          Description is required.
+        </small>
+      </label>
+
+      <label class="field">
+        <span>Price (UAH)</span>
+        <input type="number" formControlName="price">
+        <small *ngIf="editForm.controls.price.touched && editForm.controls.price.invalid">
+          Price must be greater than 0.
+        </small>
+      </label>
+
+      <label class="field">
+        <span>Image file</span>
+        <input type="text" formControlName="image">
+      </label>
+
+      <p class="edit-error" *ngIf="editErrorMessage()">
+        {{ editErrorMessage() }}
+      </p>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="closeEditModal()" [disabled]="isSaving()">Cancel</button>
+        <button type="submit" class="btn-save" [disabled]="editForm.invalid || isSaving()">
+          {{ isSaving() ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+
+<div class="modal-backdrop" *ngIf="viewingBook() as selectedBook" (click)="closeDetailsModal()">
+  <section
+    class="edit-modal details-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="details-book-title"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="modal-header">
+      <h2 id="details-book-title">{{ selectedBook.title }}</h2>
+      <button type="button" class="modal-close" aria-label="Close details window" (click)="closeDetailsModal()">
+        x
+      </button>
+    </div>
+
+    <p class="details-description">
+      {{ selectedBook.description }}
+    </p>
+
+    <div class="modal-actions">
+      <button type="button" class="btn-save" (click)="closeDetailsModal()">Close</button>
+    </div>
+  </section>
 </div>

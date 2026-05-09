@@ -1,18 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HomeComponent } from './home';
+import { of } from 'rxjs';
+import { BookService } from '../book.service';
+import { Home } from './home';
 
 describe('Home', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+  let component: Home;
+  let fixture: ComponentFixture<Home>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent],
+      imports: [Home],
+      providers: [
+        {
+          provide: BookService,
+          useValue: {
+            getBooks: () => of([]),
+            updateBook: () => of(null),
+            deleteBook: () => of(void 0)
+          }
+        }
+      ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 

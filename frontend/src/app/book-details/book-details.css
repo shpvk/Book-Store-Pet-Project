@@ -8,12 +8,19 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 40px;
-    background: white;
+    background: var(--card-bg);
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     max-width: 900px;
     width: 100%;
+    border: 1px solid var(--border-color);
+}
+
+.error-message {
+    color: #ef4444;
+    text-align: center;
+    padding: 100px 20px 0;
 }
 
 .image-section img {
@@ -30,7 +37,7 @@
 }
 
 .description-box h3 {
-    border-bottom: 2px solid #f1f5f9;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
     margin-top: 30px;
 }
@@ -38,7 +45,8 @@
 .btn-back {
     margin-top: 40px;
     padding: 12px 25px;
-    background: #f1f5f9;
+    background: var(--border-color);
+    color: var(--text-main);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -47,5 +55,5 @@
 }
 
 .btn-back:hover {
-    background: #e2e8f0;
+    opacity: 0.85;
 }
