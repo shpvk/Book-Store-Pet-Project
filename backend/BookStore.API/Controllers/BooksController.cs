@@ -36,6 +36,13 @@ namespace BookStore.API.Controllers
             await _bookService.DeleteBookAsync(bookId);
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(int bookId, UpdateBookRequest updateBookRequest)
+        {
+            await _bookService.UpdateBookAsync(bookId, updateBookRequest);
+            return Ok();
+        }
     }
 }
 

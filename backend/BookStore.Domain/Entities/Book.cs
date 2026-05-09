@@ -4,11 +4,11 @@
     {
         public int Id { get; }
 
-        public string Title { get; } = string.Empty;
-        public string Description { get; } = string.Empty;
-        public decimal Price { get; }
+        public string Title { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
+        public decimal Price { get; private set; }
 
-        public string Image { get; }
+        public string Image { get; private set; }
 
 
         public const int MAX_TITLE_LENGTH = 250;
@@ -72,6 +72,15 @@
 
             Book book = new Book(title, description, price, image);
             return (book, null);
+        }
+
+
+        public void Update(Book newBook)
+        {
+            Title = newBook.Title;
+            Description = newBook.Description;
+            Price = newBook.Price;
+            Image = newBook.Image;
         }
 
     }

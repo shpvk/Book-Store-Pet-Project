@@ -2,6 +2,7 @@
 using BookStore.Application.Interfaces;
 using BookStore.Domain.Models;
 using BookStore.Domain.Repository;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace BookStore.Application.Services
 {
     public class BookService : IBookService
@@ -55,7 +56,30 @@ namespace BookStore.Application.Services
 
         public async Task DeleteBookAsync(int id)
         {
-            _bookRepository.DeleteAsync(id);
+            await _bookRepository.DeleteAsync(id);
+        }
+
+        public async Task UpdateBookAsync(int bookId, UpdateBookRequest updateBookRequest)
+        {
+            Book? oldBook = await _bookRepository.FindById(bookId);
+
+            if(oldBook == null)
+            {
+                throw new Exception("Book is null!");
+            }
+
+            (Book ? newBook, string ? Error) = Book.Create(updateBookRequest.Title, updateBookRequest.Description, updateBookRequest.Price, updateBookRequest.Image);
+            if (Error != null)
+            {
+                throw new Exception(Error);
+            }
+            if (newBook == null)
+            {
+                throw new Exception("Book creation failed");
+            }
+
+            oldBook.Update(newBook);
+            await _bookRepository.SaveChangesAsync();
         }
 
     }
